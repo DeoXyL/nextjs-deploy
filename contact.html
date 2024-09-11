@@ -1,0 +1,30 @@
+<section class="resume-section">
+    <h2>Create Your Resume</h2>
+    <form id="resumeForm">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required><br><br>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required><br><br>
+        <button type="submit">Generate Resume</button>
+    </form>
+</section>
+
+<section id="generatedResume" style="display:none;">
+    <h2>Your Resume</h2>
+    <p>Name: <span id="displayName"></span></p>
+    <p>Email: <span id="displayEmail"></span></p>
+</section>
+
+<script>
+    document.getElementById('resumeForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+        
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+
+        document.getElementById('displayName').textContent = name;
+        document.getElementById('displayEmail').textContent = email;
+
+        document.getElementById('generatedResume').style.display = 'block';
+    });
+</script>

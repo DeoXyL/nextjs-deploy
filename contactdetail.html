@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Resume</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+
+        .resume-section {
+            margin-bottom: 20px;
+        }
+
+        header {
+            text-align: center;
+            background-color: #333;
+            color: white;
+            padding: 10px;
+        }
+
+        .toggle-button {
+            display: inline-block;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        .skills-section {
+            display: none; /* Hidden initially */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>John Doe's Resume</h1>
+    </header>
+
+    <section class="resume-section">
+        <h2>Personal Information</h2>
+        <p>Name: John Doe</p>
+        <p>Email: john.doe@example.com</p>
+    </section>
+
+    <section class="resume-section">
+        <h2>Education</h2>
+        <p>Bachelor of Science in Computer Science, XYZ University</p>
+    </section>
+
+    <section class="resume-section">
+        <h2>Work Experience</h2>
+        <p>Software Developer at ABC Corp (2019 - Present)</p>
+    </section>
+
+    <section class="resume-section">
+        <h2>Skills</h2>
+        <button class="toggle-button" id="toggleSkillsBtn">Show Skills</button>
+        <ul class="skills-section" id="skillsList">
+            <li>JavaScript</li>
+            <li>TypeScript</li>
+            <li>React</li>
+            <li>Next.js</li>
+        </ul>
+    </section>
+
+    <script>
+        document.getElementById('toggleSkillsBtn').addEventListener('click', function() {
+            const skillsList = document.getElementById('skillsList');
+            if (skillsList.style.display === 'none' || skillsList.style.display === '') {
+                skillsList.style.display = 'block';
+                this.textContent = 'Hide Skills';
+            } else {
+                skillsList.style.display = 'none';
+                this.textContent = 'Show Skills';
+            }
+        });
+    </script>
+
+<section class="resume-section">
+    <h2>Create Your Resume</h2>
+    <form id="resumeForm">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required><br><br>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required><br><br>
+        <button type="submit">Generate Resume</button>
+    </form>
+</section>
+
+<section id="generatedResume" style="display:none;">
+    <h2>Your Resume</h2>
+    <p>Name: <span id="displayName" contenteditable="true"></span></p>
+    <p>Email: <span id="displayEmail" contenteditable="true"></span></p>
+    
+</section>
+
+<script>
+    document.getElementById('resumeForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+        
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+
+        document.getElementById('displayName').textContent = name;
+        document.getElementById('displayEmail').textContent = email;
+
+        document.getElementById('generatedResume').style.display = 'block';
+    });
+</script>
+
+
+
+</body>
+</html>
