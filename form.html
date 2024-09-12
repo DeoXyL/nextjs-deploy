@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Resume Builder with Profile Image</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+
+        .form-section, .resume-section {
+            margin-bottom: 20px;
+        }
+
+        header {
+            text-align: center;
+            background-color: #333;
+            color: white;
+            padding: 10px;
+        }
+
+        form input, form textarea {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .form-section button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        .resume-section {
+            background-color: white;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        #profileImagePreview {
+            max-width: 150px;
+            max-height: 150px;
+            border-radius: 50%;
+            display: block;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Dynamic Resume Builder with Profile Image</h1>
+    </header>
+
+    <!-- Form Section -->
+    <section class="form-section">
+        <h2>Fill Out Your Resume</h2>
+        <form id="resumeForm">
+            <!-- Personal Information -->
+            <input type="text" id="name" placeholder="Your Name" required>
+            <input type="email" id="email" placeholder="Your Email" required>
+
+            <!-- Profile Image Upload -->
+            <label for="profileImage">Upload Profile Image:</label>
+            <input type="file" id="profileImage" accept="image/*" required>
+            
+            <!-- Education -->
+            <textarea id="education" placeholder="Education (e.g., BSc in Computer Science)" required></textarea>
+            
+            <!-- Work Experience -->
+            <textarea id="workExperience" placeholder="Work Experience (e.g., Software Developer at ABC Corp)" required></textarea>
+            
+            <!-- Submit Button -->
+            <button type="submit">Generate Resume</button>
+        </form>
+    </section>
+
+    <!-- Resume Section -->
+    <section class="resume-section" id="generatedResume" style="display:none;">
+        <h2>Generated Resume</h2>
+        <!-- Profile Image -->
+        <img id="profileImagePreview" src="" alt="Profile Image">
+
+        <!-- Personal Information -->
+        <p><strong>Name:</strong> <span id="displayName"></span></p>
+        <p><strong>Email:</strong> <span id="displayEmail"></span></p>
+
+        <!-- Education -->
+        <p><strong>Education:</strong> <span id="displayEducation"></span></p>
+
+        <!-- Work Experience -->
+        <p><strong>Work Experience:</strong> <span id="displayWorkExperience"></span></p>
+    </section>
+
+    <!-- Include TypeScript File -->
+    <script src="app.js"></script>
+</body>
+</html>
+
